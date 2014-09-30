@@ -292,12 +292,6 @@ def get_config(config_file):
 
     # Second pass to make sure env sections apply to all watchers.
 
-    def _extend(target, source):
-        for name, value in source:
-            if name in target:
-                continue
-            target[name] = value
-
     def _expand_vars(target, key, env):
         if isinstance(target[key], str):
             target[key] = replace_gnu_args(target[key], env=env)
